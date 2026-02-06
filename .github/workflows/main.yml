@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build with Buildozer
+      - name: Build
         uses: ArtemSerebrennikov/buildozer-action@v1
         with:
           command: buildozer android debug
-      - name: Upload APK
+      - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: atlas-ai-app
+          name: atlas-ai
           path: bin/*.apk
