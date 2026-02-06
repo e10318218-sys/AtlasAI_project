@@ -2,15 +2,15 @@ name: Build APK
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Build
-        uses: ArtemSerebrennikov/buildozer-action@v1
+      - name: Build with Buildozer
+        uses: Niklas-dev/buildozer-action@v1.2
         with:
           command: buildozer android debug
-      - name: Upload
+      - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: atlas-ai
+          name: atlas-ai-app
           path: bin/*.apk
